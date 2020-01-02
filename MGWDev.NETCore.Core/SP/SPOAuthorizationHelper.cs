@@ -53,7 +53,7 @@ namespace MGWDev.NETCore.Core.SP
 
         protected virtual string GetAuthorizationToken(string loginToken)
         {
-            HttpWebRequest webRequest = WebRequest.CreateHttp("https://mwdevsb.sharepoint.com/_vti_bin/idcrl.svc/");
+            HttpWebRequest webRequest = WebRequest.CreateHttp($"{SiteUrl}/_vti_bin/idcrl.svc/");
             webRequest.Headers.Add("Authorization", "BPOSIDCRL " + loginToken);
             webRequest.Headers.Add("X-IDCRL_ACCEPTED", "t");
 
