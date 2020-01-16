@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageId>MGWDev.NETCore.Core</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>m.g.wojciechowski@gmail.com</Authors>
+    <Company>MGWDev</Company>
   </PropertyGroup>
 
   <ItemGroup>

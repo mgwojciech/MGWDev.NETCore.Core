@@ -16,7 +16,7 @@ namespace MGWDev.NETCore.Core.Tests
         string password = "";
         string site = "";
 
-        [TestMethod]
+        //[TestMethod]
         public void TestGetWeb()
         {
             SPOHttpClient spoClient = new SPOHttpClient(login, password, site);
@@ -36,7 +36,7 @@ namespace MGWDev.NETCore.Core.Tests
             };
             dynamic response = spoClient.PostData<dynamic,ListItem>("/_api/web/lists/getByTitle('Umowy')/items(1)", item, headers);
         }
-        [TestMethod]
+        //[TestMethod]
         public void TestFilterClause()
         {
             RESTUrlBuilder<ListItem> queryBuilder = new RESTUrlBuilder<ListItem>();

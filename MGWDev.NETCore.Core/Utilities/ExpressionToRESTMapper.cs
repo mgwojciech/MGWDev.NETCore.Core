@@ -112,6 +112,12 @@ namespace MGWDev.NETCore.Core.Utilities
         protected virtual string VisitMemberAccess(MemberExpression member)
         {
             CurrentMember = member.Member;
+            if (member.Expression != null && member.Expression.NodeType == ExpressionType.Constant)
+            {
+                LambdaExpression lambda = Expression.Lambda(member);
+                Delegate fn = lambda.Compile();
+                return VisitConstant(Expression.Constant(fn.DynamicInvoke(null), member.Type));
+            }
             if (member.Expression is MemberExpression && !PropertyHelper.IsSimpleType((((MemberExpression)member.Expression).Member.DeclaringType)))
             {
                 return ((MemberExpression)member.Expression).Member.Name + "/" + CurrentMembersMapping;
